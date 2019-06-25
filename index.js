@@ -5,7 +5,9 @@ const app = express()
 const port = 4000
 
 const Sequelize = require('sequelize')
-const sequelize = new Sequelize('postgres://postgres:secret@localhost:5432/postgres', {define: { timestamps: false }})
+
+const connectionString = process.env.DATABASE_URL || 'postgres://postgres:secret@localhost:5432/postgres'
+const sequelize = new Sequelize(connectionString, {define: { timestamps: false }})
 
 app.use(bodyParser.json())
 
