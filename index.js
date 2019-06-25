@@ -84,4 +84,4 @@ app.delete('/houses/:id', (req, res) => {
   .catch(err => res.status(500).json(err))
 })
 
-app.listen(process.env.DATABASE_URL || port, () => `Listening on port ${port}`);
+app.listen(process.env.port || port, () => `Listening on port ${port}`);
